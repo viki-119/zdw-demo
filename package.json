@@ -1,7 +1,7 @@
 {
-  "name": "zdw-demo",
+  "name": "{{name}}",
   "version": "1.0.0",
-  "description": "",
+  "description": "{{description}}",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/viki-119/zdw-demo.git"
   },
-  "author": "",
+  "author": "{{author}}",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/viki-119/zdw-demo/issues"

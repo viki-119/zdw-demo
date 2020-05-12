@@ -1,0 +1,21 @@
+{
+  "presets": [
+    "@babel/env",
+    "@babel/preset-react",
+    "@babel/preset-flow"
+  ],
+  "plugins": [
+    ["import", {
+      "libraryName": "antd",
+      "libraryDirectory": "es",
+      "style": "css" // `style: true` 会加载 less 文件
+    }],
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-runtime"
+  ]
+  // "plugins": [
+  //     ["transform-react-jsx", {
+  //         "pragma": "React.createElement"//大部分框架喜欢改成h
+  //     }]
+  // ]
+}

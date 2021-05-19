@@ -42,7 +42,7 @@ Block.propTypes = {
   title: string.isRequired,
   subTitle: string,
   withLine: bool,
-  className: string,
+  className: string
 };
 
 Block.defaultProps = {

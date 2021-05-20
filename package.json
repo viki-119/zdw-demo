@@ -6,8 +6,10 @@
   "main": "index.js",
   "dependencies": {
     "animate.css": "^3.7.2",
+    "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "history": "^4.10.1",
+    "json-server": "^0.16.3",
     "prop-types": "^15.7.2",
     "qrcode": "^1.4.4",
     "react": "^16.9.0",
@@ -55,6 +57,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
+    "server": "json-server --watch ./mock/db.json",
     "build": "webpack-dev-server && npx babel src --watch -D -d ../zdw-biz/lib",
     "webpack": "rimraf dist && webpack --mode development --watch --hot --progress",
     "clean": "rimraf dist ../zdw-biz/lib",

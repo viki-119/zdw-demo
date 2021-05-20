@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios';
 import Child from './child';
-
 import Context from './my-context';
 import { baseUrl } from '../../common/constant';
 
@@ -14,7 +13,7 @@ class App extends PureComponent {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data', {
+    fetch(`${baseUrl}/data`, {
       method: 'GET',
       mode: 'cors', // no-cors | same-origin | cors
       credentials: 'omit', // omit | include | same-origin

@@ -12,13 +12,13 @@ const outPath = `dist/${packageName}/${packageVersion}/`;
 module.exports = merge({}, {
   mode: 'development',
   entry: {
-    index: './demo/entry/index.js',
+    index: './demo/entry/index.js'
     // cc: './demo/entry/index.js',
   },
   output: {
     filename: '[name]/[name].js',
     // filename: '[name]_[hash:8].js',
-    path: path.resolve(__dirname, outPath),
+    path: path.resolve(__dirname, outPath)
   },
   // resolve: {
   // },
@@ -26,6 +26,13 @@ module.exports = merge({}, {
     port: 8080,
     open: true,
     host: 'localhost' // 默认是localhost
+  },
+  resolve: {
+    alias: {
+      '@demo': path.resolve(__dirname, 'demo/')
+      // 'zdw-biz': path.resolve(__dirname, 'src/')
+      // Templates: path.resolve(__dirname, 'src/templates/')
+    }
   },
   // eslint: {
   //   configFile: './.eslintrc'
@@ -82,9 +89,9 @@ module.exports = merge({}, {
         }]
       },
       {
-        test:/\.(ts|tsx)$/, // 识别ts文件,使用ts-loader来解析
+        test: /\.(ts|tsx)$/, // 识别ts文件,使用ts-loader来解析
         exclude: /node_modules/,
-        use: 'ts-loader',
+        use: 'ts-loader'
       },
       // {
       //   test:/\.(js|jsx)?$/,

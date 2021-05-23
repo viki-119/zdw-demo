@@ -13,23 +13,6 @@ class App extends PureComponent {
   }
 
   componentDidMount() {
-    fetch(`${baseUrl}/data`, {
-      method: 'GET',
-      mode: 'cors', // no-cors | same-origin | cors
-      credentials: 'omit', // omit | include | same-origin
-      responseType: 'stream',
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-        // 'Content-Type': 'image/jpeg'
-      }
-      // referrerPolicy: 'origin-when-cross-origin'
-    }).then((res) => {
-      console.log('%c ❤️res❤️:', 'color: Aquamarine; background: Yellow; font-size: 20px;', res);
-      // res.blob().then((tRes) => {
-      //   console.log('%c 🇨🇳tRes🇨🇳:', 'color: Indigo; background: DeepPink; font-size: 20px;', tRes);
-      // });
-    });
-
     axios(`${baseUrl}/data`).then((axiosres) => {
       this.setState({
         provideData: axiosres.data

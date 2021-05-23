@@ -8,6 +8,41 @@ export default class Test extends PureComponent {
   // 3. 申明静态变量、contextType 将context直接赋值于 contextType
   static contextType = Context;
 
+  componentDidMount() {
+    const str = '1234355';
+    const fixStr = '0';
+    const len = 3;
+    const result = this.fixFun(str, fixStr, len);
+    console.log('%c 👍result👍:', 'color: MediumSpringGreen; background: Aquamarine; font-size: 20px;', result);
+    // const tmpStr = str.padStart(5, '0');
+    const cc = test('10101010102030123414320', '13748434');
+    function test(a, b) {
+      const alen = a.length;
+      const blen = b.length;
+      const max = Math.max(alen, blen);
+      const tmpA = a.padStart(max, 0);
+      const tmpB = b.padStart(max, 0);
+      let resStr = '';
+      let needPlus = false;
+      for (let i = max - 1; i >= 0; i--) {
+        let tmpRes = Number(tmpA.slice(i, i + 1)) + Number(tmpB.slice(i, i + 1));
+        if (needPlus) {
+          tmpRes += 1;
+          needPlus = false;
+        }
+        if (tmpRes >= 10) {
+          needPlus = true;
+          resStr = String(tmpRes).slice(-1) + resStr;
+        } else {
+          resStr = String(tmpRes).slice(-1) + resStr;
+        }
+      }
+      return resStr;
+    }
+  }
+
+  fixFun = (str, fixStr, len) => Array(len).fill(fixStr).join('') + str;
+
   render() {
     return (
       <div>

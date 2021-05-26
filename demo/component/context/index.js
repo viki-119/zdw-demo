@@ -22,6 +22,12 @@ class App extends PureComponent {
     });
   }
 
+  clickCc = () => {
+    this.setState({
+      provideData: { age: 12 }
+    });
+  }
+
   render() {
     const { provideData } = this.state;
     return (
@@ -30,6 +36,9 @@ class App extends PureComponent {
     // 使用 context, 我们可以避免通过中间元素传递 props
       <>
         <Context.Provider value={provideData}>
+          <div onClick={this.clickCc}>
+            cc
+          </div>
           <div className="App">
             <Child />
             <HookChild />

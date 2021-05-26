@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import Context from './my-context';
 
-export default class Child extends PureComponent {
+export default class Child extends Component {
   // 参考代码： // https://blog.csdn.net/landl_ww/article/details/93514944
   // 1. contextType 只能在类组件中使用
   // 2. 一个组件如果有多个consumer， contextType只对其中一个有效，所以说，contextType 只能有一个
@@ -41,27 +41,33 @@ export default class Child extends PureComponent {
     }
   }
 
+  shouldComponentUpdate() {
+    // 这里虽然返回了false， 但是只要provide 的value值发生改变，还是会重新渲染当前组件
+    return false;
+  }
+
   fixFun = (str, fixStr, len) => Array(len).fill(fixStr).join('') + str;
 
   render() {
     return (
       <div>
+        {
+          // 每当 Provider(提供者) 的 value 属性发生变化时，所有作为 Provider(提供者) 后代的 consumer(使用者) 组件 都将重新渲染。
+          // 从Provider 到其后代使用者的传播不受 shouldComponentUpdate 方法的约束，因此即使祖先组件退出更新，也会更新 consumer(使用者) 。
+        }
         <Context.Consumer>
           { // Context.Consumer Consumer消费者使用Context的值
-          // 但子组件不能是其他组件，必须渲染一个函数，函数的参数就是Context的值
-            (props) => {
-              console.log('%c 💻props💻:', 'color: Indigo; background: DeepPink; font-size: 20px;', props);
-              return (
-                <pre>
-                  {
-                    JSON.stringify(props, null, 2)
-                  }
-                  {
-                    JSON.stringify(this.context, null, 2)
-                  }
-                </pre>
-              );
-            }
+            // 但子组件不能是其他组件，必须渲染一个函数，函数的参数就是Context的值
+            (provideValue) => (
+              <pre>
+                {
+                  JSON.stringify(provideValue, null, 2)
+                }
+                {
+                  JSON.stringify(this.context, null, 2)
+                }
+              </pre>
+            )
           }
         </Context.Consumer>
       </div>

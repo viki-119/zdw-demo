@@ -24,6 +24,12 @@ class Iframe extends PureComponent {
                 <div className="menu" style={{ minHeight: 1083 }}>
                   <Menu mode="inline">
                     <Menu.Item>
+                      <Link to="/learnWebUrl">学习网站地址合集</Link>
+                    </Menu.Item>
+                    <Menu.Item>
+                      <Link to="/hooks">hooks</Link>
+                    </Menu.Item>
+                    <Menu.Item>
                       <Link to="/fetch">fetch</Link>
                     </Menu.Item>
                     <Menu.Item>

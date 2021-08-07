@@ -25,7 +25,7 @@ module.exports = merge({}, {
   devServer: {
     port: 8080,
     open: true,
-    host: 'localhost' // 默认是localhost
+    host: '127.0.0.1' // 默认是localhost
   },
   resolve: {
     alias: {

@@ -5,6 +5,16 @@ import { baseUrl } from '@demo/common/constant';
 export default () => {
   const [axiosData, setAxiosData] = useState({});
   useEffect(() => {
+    // 把给定的字符串改成驼峰写法
+    const str = 'hello world';
+    const newStr = str.split(' ').map((val, index) => {
+      if (index > 0) {
+        return val[0].toUpperCase() + val.slice(1);
+      }
+      return val;
+    });
+    const resultStr = newStr.join('');
+    console.log('%c 🍎resultStr🍎:', 'color: DarkOrange; background: MidnightBlue; font-size: 20px;', resultStr);
     // An effect function must not return anything besides a function, which is used for clean-up.
     const url = `${baseUrl}/data`;
     // const res = await axios(url);

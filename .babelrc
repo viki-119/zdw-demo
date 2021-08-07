@@ -10,7 +10,7 @@
       "libraryDirectory": "es",
       "style": "css" // `style: true` 会加载 less 文件
     }],
-    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-class-properties", // 可选链，双问号
     "@babel/plugin-transform-runtime"
   ]
   // "plugins": [
